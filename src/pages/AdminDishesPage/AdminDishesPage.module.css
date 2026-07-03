@@ -8,3 +8,9 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.dishesList{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

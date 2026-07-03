@@ -34,9 +34,9 @@ export const fetchDishes = createAsyncThunk<Dish[], void, {
   }
 );
 
-export const createDish = createAsyncThunk<void, DishObj>(
+export const createDish = createAsyncThunk<void, DishObj, { rejectValue: string }>(
   'dish/create',
-  async (dishObj, {rejectWithValue, dispatch}) => {
+  async (dishObj, { rejectWithValue, dispatch }) => {
     try {
       await axiosInstance.post('/dishes.json', dishObj);
       dispatch(fetchDishes());

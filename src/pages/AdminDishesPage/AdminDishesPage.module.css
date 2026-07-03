@@ -9,8 +9,14 @@
   justify-content: space-between;
 }
 
-.dishesList{
+.dishesList {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.emptyList {
+  text-align: center;
+  color: #8c8c8c;
+  padding: 40px 0;
 }

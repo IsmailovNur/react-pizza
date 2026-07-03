@@ -34,9 +34,11 @@ export const fetchDishes = createAsyncThunk<Dish[], void, {
   }
 );
 
-export const createDish = createAsyncThunk<void, DishObj, { rejectValue: string }>(
+export const createDish = createAsyncThunk<void, DishObj, {
+  rejectValue: string
+}>(
   'dish/create',
-  async (dishObj, { rejectWithValue, dispatch }) => {
+  async (dishObj, {rejectWithValue, dispatch}) => {
     try {
       await axiosInstance.post('/dishes.json', dishObj);
       dispatch(fetchDishes());
@@ -57,6 +59,20 @@ export const deleteDish = createAsyncThunk<void, string>(
     }
   }
 );
+
+export const updateDish = createAsyncThunk<void, Dish, { rejectValue: string }>(
+  'dish/update',
+  async (dish, {rejectWithValue, dispatch}) => {
+    const {id, ...dto} = dish;
+    try {
+      await axiosInstance.put(`/dishes/${id}.json`, dto);
+      dispatch(fetchDishes());
+    } catch {
+      return rejectWithValue('Failed to update dish');
+    }
+  }
+);
+
 
 const dishSlice = createSlice({
   name: "dish",
@@ -88,6 +104,13 @@ const dishSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteDish.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+
+      .addCase(updateDish.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateDish.fulfilled, (state) => {
         state.isLoading = false;
       });
   }

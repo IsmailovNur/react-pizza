@@ -1,6 +1,4 @@
 import { Alert, Button, Typography } from "antd";
-
-import styles from "./AdminDishesPage.module.css";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../routing/routes.ts";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +7,8 @@ import { useEffect } from "react";
 import { deleteDish, fetchDishes } from "../../entities/Dish/DishSlice.ts";
 import Spinner from "../../shared/Spinner/Spinner.tsx";
 import { DishItem } from "../../entities/Dish/DishItem/DishItem.tsx";
+
+import styles from "./AdminDishesPage.module.css";
 
 const {Title} = Typography;
 
@@ -53,6 +53,12 @@ const AdminDishesPage = () => {
           />
         ))}
       </div>
+
+      {!isLoading && dishes.length === 0 && (
+        <div className={styles.emptyList}>
+          No dishes found. Click "Add new Dish" to create Dish.
+        </div>
+      )}
     </div>
   );
 };

@@ -1,26 +1,31 @@
 import { NavLink } from "react-router-dom";
 import { AppRoutes } from "../../routing/routes.ts";
-import { Typography } from "antd";
-import { HeaderSearch } from "../../features/HeaderSearch/HeaderSearch.tsx";
 
 import styles from "./AppHeader.module.css";
-
-const {Text} = Typography;
 
 const AppHeader = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.headerTop}>
-        <NavLink
-          to={AppRoutes.main}
-          className={styles.mainLink}
-        >
-          <Text className={styles.logoName}>TV Shows</Text>
-        </NavLink>
+      <div className={styles.headerInner}>
+        <div className={styles.headerLeft}>
+          <NavLink
+            to={AppRoutes.main}
+            className={styles.mainLink}
+          >
+            React Pizza
+          </NavLink>
+        </div>
+        <nav className={styles.headerRight}>
+          <NavLink
+            className={styles.headerLink}
+            to={AppRoutes.adminDishes}
+          >Dishes</NavLink>
+          <NavLink
+            className={styles.headerLink}
+            to={AppRoutes.adminOrders}
+          >Orders</NavLink>
+        </nav>
 
-      </div>
-      <div className={styles.headerBottom}>
-        <HeaderSearch />
       </div>
     </header>
   );

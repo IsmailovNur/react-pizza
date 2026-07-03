@@ -1,18 +1,37 @@
 .header {
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.headerInner {
+  padding: 0 10px;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 10px;
+  display: flex;
+  align-items: center;
 }
-.headerTop{
 
+.headerLeft {
+
+}
+
+.headerRight {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+
+}
+
+.headerLink {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .mainLink {
+  color: #fff;
   text-decoration: none;
-  font-size: 24px;
-}
-
-.logoName {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
 }

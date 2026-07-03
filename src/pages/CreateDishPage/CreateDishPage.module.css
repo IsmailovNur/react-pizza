@@ -1,3 +1,17 @@
-.CreateDishPage{
+.CreateDishPage {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
+.formTop {
+  margin: 24px 0;
+}
+
+.formCard {
+  background-color: #1f1f1f;
+}
+
+.formRows {
+  display: flex;
+  flex-direction: column;
 }

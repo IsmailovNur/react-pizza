@@ -10,11 +10,12 @@ const {Text} = Typography;
 interface DishItemProps {
   dish: Dish;
   onDelete: (id: string) => void;
+  onEdit?: (id: string) => void;
 }
 
 export const DishItem: FC<DishItemProps> = (props) => {
 
-  const {dish, onDelete} = props;
+  const {dish, onDelete, onEdit} = props;
 
   return (
     <Card className={styles.dishCard}>
@@ -31,12 +32,14 @@ export const DishItem: FC<DishItemProps> = (props) => {
         </div>
 
         <div className={styles.actions}>
-          <Button
-            icon={<EditOutlined />}
-            onClick={() => console.log('edit')}
-          >
-            Edit
-          </Button>
+          {onEdit && (
+            <Button
+              icon={<EditOutlined />}
+              onClick={() => onEdit(dish.id)}
+            >
+              Edit
+            </Button>
+          )}
           <Button
             danger
             icon={<DeleteOutlined />}

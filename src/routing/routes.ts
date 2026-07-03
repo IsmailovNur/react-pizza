@@ -1,6 +1,7 @@
 export const AppRoutes = {
   main: '/',
-  createDish: '/admin/createDish',
+  createDish: '/admin/create-dish',
+  editDish: '/admin/create-dish/:id',
   adminDishes: '/admin/dishes',
   adminOrders: '/admin/orders',
   notFound: '*',

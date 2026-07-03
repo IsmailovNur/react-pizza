@@ -15,7 +15,11 @@ const {Title} = Typography;
 const AdminDishesPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const { dishes, isLoading, error } = useSelector((state: RootState) => state.dishes);
+  const {
+    dishes,
+    isLoading,
+    error
+  } = useSelector((state: RootState) => state.dishes);
 
   useEffect(() => {
     dispatch(fetchDishes());
@@ -23,6 +27,10 @@ const AdminDishesPage = () => {
 
   const handleDelete = (id: string) => {
     dispatch(deleteDish(id));
+  };
+
+  const handleEdit = (id: string) => {
+    navigate(AppRoutes.editDish.replace(':id', id));
   };
 
   if (isLoading && dishes.length === 0) {
@@ -42,7 +50,8 @@ const AdminDishesPage = () => {
         </Button>
       </div>
 
-      {error && <Alert title={error} type="error" showIcon style={{ marginBottom: 16 }} />}
+      {error &&
+        <Alert title={error} type="error" showIcon style={{marginBottom: 16}} />}
 
       <div className={styles.dishesList}>
         {dishes.map((dish) => (
@@ -50,6 +59,7 @@ const AdminDishesPage = () => {
             key={dish.id}
             dish={dish}
             onDelete={handleDelete}
+            onEdit={handleEdit}
           />
         ))}
       </div>

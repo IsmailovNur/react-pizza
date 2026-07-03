@@ -28,6 +28,10 @@ export const router = createBrowserRouter([
         element: <CreateDishPage />,
       },
       {
+        path: AppRoutes.editDish,
+        element: <CreateDishPage />,
+      },
+      {
         path: AppRoutes.notFound,
         element: <NotFoundPage />,
       },

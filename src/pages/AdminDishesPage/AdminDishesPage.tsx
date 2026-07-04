@@ -1,4 +1,4 @@
-import { Alert, Button, Typography } from "antd";
+import { Alert, Button, message, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../routing/routes.ts";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +26,7 @@ const AdminDishesPage = () => {
   }, [dispatch]);
 
   const handleDelete = (id: string) => {
+    void message.success("Dish deleted successfully!");
     dispatch(deleteDish(id));
   };
 

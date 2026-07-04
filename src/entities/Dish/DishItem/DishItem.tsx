@@ -16,7 +16,6 @@ interface DishItemProps {
 export const DishItem: FC<DishItemProps> = (props) => {
 
   const {dish, onDelete, onEdit} = props;
-  console.log(dish)
   return (
     <Card className={styles.dishCard}>
       <div className={styles.dishContent}>
@@ -25,7 +24,11 @@ export const DishItem: FC<DishItemProps> = (props) => {
             src={dish.image}
             alt={dish.name}
             className={styles.dishImage} />
-          : <img className={styles.dishImage} src='https://placehold.co/200' />
+          : <img
+            alt=''
+            className={styles.dishImage}
+            src='https://placehold.co/200'
+          />
         }
 
         <div className={styles.dishInfo}>

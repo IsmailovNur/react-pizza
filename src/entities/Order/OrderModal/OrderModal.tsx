@@ -37,7 +37,7 @@ export const OrderModal: FC<OrderModalProps> = (props) => {
       onCancel={onClose}
       centered
       footer={[
-        <div className={styles.modalFooter}>
+        <div key="modalFooter" className={styles.modalFooter}>
           <Button
             key="cancel"
             onClick={onClose}

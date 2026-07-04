@@ -1,0 +1,49 @@
+.MainPage {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dishesList {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.dishCard {
+  border: 2px solid #1f1f1f;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dishInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.dishName {
+  font-weight: 700;
+}
+
+.total{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  border-top: 1px solid #e8e8e8;
+  padding: 20px;
+}
+.totalInner{
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

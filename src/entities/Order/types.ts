@@ -1,4 +1,1 @@
-export interface Order {
-  dishId: string;
-  count: number;
-}
+export type OrderData = Record<string, number>;

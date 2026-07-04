@@ -18,19 +18,23 @@
 }
 
 
-.dishInfo{
+.dishInfo {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-left: 10px;
+  margin-right: auto;
 }
-.dishTitle{
+
+.dishTitle {
   font-size: 20px;
 }
-.dishPrice{
 
+.dishPrice {
+  font-weight: 700;
 }
 
-.actions{
+.actions {
   display: flex;
   flex-direction: column;
   gap: 10px;

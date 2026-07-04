@@ -1,9 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { AppRoutes } from "../../routing/routes.ts";
 
 import styles from "./AppHeader.module.css";
 
 const AppHeader = () => {
+  const location = useLocation();
+  const isClientPage = location.pathname === AppRoutes.main;
+
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
@@ -15,16 +18,16 @@ const AppHeader = () => {
             React Pizza
           </NavLink>
         </div>
-        <nav className={styles.headerRight}>
-          <NavLink
-            className={styles.headerLink}
-            to={AppRoutes.adminDishes}
-          >Dishes</NavLink>
-          <NavLink
-            className={styles.headerLink}
-            to={AppRoutes.adminOrders}
-          >Orders</NavLink>
-        </nav>
+        {!isClientPage && (
+          <nav className={styles.headerRight}>
+            <NavLink className={styles.headerLink} to={AppRoutes.adminDishes}>
+              Dishes
+            </NavLink>
+            <NavLink className={styles.headerLink} to={AppRoutes.adminOrders}>
+              Orders
+            </NavLink>
+          </nav>
+        )}
 
       </div>
     </header>
